@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<article class="award">
+  <header class="award-header">
+    <h1 class="award-title">{{ page.title }}</h1>
+    <p class="award-meta">
+      <span class="position">{{ page.position }}</span> | 
+      <span class="date">{{ page.date | date: "%B %Y" }}</span>
+    </p>
+    {% if page.organizer %}
+    <p class="organizer">{{ page.organizer }}</p>
+    {% endif %}
+  </header>
+
+  <div class="award-content">
+    {{ content }}
+  </div>
+
+  {% if page.team %}
+  <div class="team-info">
+    <h3>Team:</h3>
+    <ul>
+      {% for member in page.team %}
+      <li>{{ member }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if page.links %}
+  <div class="award-links">
+    <h3>Links:</h3>
+    <ul>
+      {% if page.links.certificate %}
+      <li><a href="{{ page.links.certificate }}" target="_blank">Certificate</a></li>
+      {% endif %}
+      {% if page.links.project %}
+      <li><a href="{{ page.links.project }}" target="_blank">Project</a></li>
+      {% endif %}
+      {% if page.links.news %}
+      <li><a href="{{ page.links.news }}" target="_blank">News Article</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="award-navigation">
+    {% if page.previous.url %}
+    <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next.url %}
+    <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+    {% endif %}
+  </div>
+</article>
