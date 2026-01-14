@@ -1,0 +1,67 @@
+# Site Settings
+title: "Your Name - Portfolio"
+description: "Personal portfolio showcasing projects, awards, and professional achievements"
+url: "https://johnny-joo.github.io"
+baseurl: ""
+author: "Your Name"
+email: "your.email@example.com"
+
+# Social Media Links
+social:
+  linkedin: "https://www.linkedin.com/in/yourprofile"
+  github: "https://github.com/johnny-joo"
+  email: "your.email@example.com"
+
+# Build Settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+  awards:
+    output: true
+    permalink: /awards/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "awards"
+    values:
+      layout: "award"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - README.md

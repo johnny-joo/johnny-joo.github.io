@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article class="project">
+  <header class="project-header">
+    <h1 class="project-title">{{ page.title }}</h1>
+    <p class="project-meta">
+      <span class="date">{{ page.date | date: "%B %Y" }}</span>
+      {% if page.category %}
+      <span class="category">{{ page.category }}</span>
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="project-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+  <div class="project-tags">
+    <h3>Technologies Used:</h3>
+    {% for tag in page.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if page.links %}
+  <div class="project-links">
+    <h3>Links:</h3>
+    <ul>
+      {% if page.links.github %}
+      <li><a href="{{ page.links.github }}" target="_blank">GitHub Repository</a></li>
+      {% endif %}
+      {% if page.links.demo %}
+      <li><a href="{{ page.links.demo }}" target="_blank">Live Demo</a></li>
+      {% endif %}
+      {% if page.links.website %}
+      <li><a href="{{ page.links.website }}" target="_blank">Website</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="project-navigation">
+    {% if page.previous.url %}
+    <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next.url %}
+    <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+    {% endif %}
+  </div>
+</article>
